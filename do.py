@@ -44,10 +44,11 @@ def test():
         ),
         '--media="fiber"',
         "tests",
-        '-m "not e2e and not l1_manual"',
+        '-m "not e2e and not l1_manual" --cov=./snappi_ixnetwork --cov-report term',
     ]
     run(
         [
+            py() + " -m pip install pytest-cov",
             py() + " -m pytest -sv {}".format(" ".join(args)),
         ]
     )
